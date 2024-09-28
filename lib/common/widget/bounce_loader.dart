@@ -3,8 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'dart:math' as math show sin, pi;
 
 class DelayTween extends Tween<double> {
-  DelayTween({double? begin, double? end, required this.delay})
-      : super(begin: begin, end: end);
+  DelayTween({super.begin, super.end, required this.delay});
 
   final double delay;
 
@@ -18,7 +17,7 @@ class DelayTween extends Tween<double> {
 
 class BounceLoader extends StatefulWidget {
   const BounceLoader({
-    Key? key,
+    super.key,
     this.color,
     this.size = 50.0,
     this.itemBuilder,
@@ -27,8 +26,7 @@ class BounceLoader extends StatefulWidget {
   })  : assert(
             !(itemBuilder is IndexedWidgetBuilder && color is Color) &&
                 !(itemBuilder == null && color == null),
-            'You should specify either a itemBuilder or a color'),
-        super(key: key);
+            'You should specify either a itemBuilder or a color');
 
   final Color? color;
   final double size;

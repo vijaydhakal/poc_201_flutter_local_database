@@ -9,7 +9,7 @@ class ShimmerContainer extends StatelessWidget {
   final double rightMargin;
   final double leftMargin;
 
-  const ShimmerContainer({
+  const ShimmerContainer({super.key, 
     this.borderRadius = 4,
     this.bottomMargin = 8,
     required this.height,

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:poc_flutter/app/theme.dart';
 import 'package:poc_flutter/common/util/size_utils.dart';
 
-typedef validator = String? Function(String? value);
+typedef Validator = String? Function(String? value);
 
 class InputFormTextfieldWithLabel extends StatefulWidget {
-  const InputFormTextfieldWithLabel({
+  const InputFormTextfieldWithLabel({super.key, 
     required this.hintText,
     required this.controller,
     this.textInputType = TextInputType.text,
@@ -22,7 +22,7 @@ class InputFormTextfieldWithLabel extends StatefulWidget {
   final TextEditingController controller;
   final TextInputType? textInputType;
   final bool? obscureText, readonly;
-  final validator? validationFunction;
+  final Validator? validationFunction;
   final Function? touchFunction;
   final FocusNode? focusNode;
   final Widget? suffixIcon;
@@ -35,8 +35,8 @@ class InputFormTextfieldWithLabel extends StatefulWidget {
 class _InputFormTextfieldState extends State<InputFormTextfieldWithLabel> {
   @override
   Widget build(BuildContext context) {
-    final _theme = Theme.of(context);
-    final _txt = _theme.textTheme;
+    final theme = Theme.of(context);
+    final txt = theme.textTheme;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,7 +44,7 @@ class _InputFormTextfieldState extends State<InputFormTextfieldWithLabel> {
         Text(
           widget.labelText,
           textScaler: TextScaler.linear(SizeUtils.textScaleFactor),
-          style: _txt.headlineSmall!.copyWith(fontWeight: FontWeight.w600),
+          style: txt.headlineSmall!.copyWith(fontWeight: FontWeight.w600),
         ),
         SizedBox(height: 8.wp),
         Container(
@@ -76,7 +76,7 @@ class _InputFormTextfieldState extends State<InputFormTextfieldWithLabel> {
                 ),
                 hintText: widget.hintText,
                 counterText: "",
-                errorStyle: _txt.bodyMedium!,
+                errorStyle: txt.bodyMedium!,
                 focusedBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: Colors.grey, width: 1),
                   borderRadius: BorderRadius.circular(10.wp),
@@ -92,7 +92,7 @@ class _InputFormTextfieldState extends State<InputFormTextfieldWithLabel> {
                 focusedErrorBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.wp),
                 ),
-                hintStyle: _txt.headlineSmall!
+                hintStyle: txt.headlineSmall!
                     .copyWith(color: Colors.black.withOpacity(0.2)),
                 border: InputBorder.none,
                 suffixIcon: widget.suffixIcon ?? Container(width: 1)),

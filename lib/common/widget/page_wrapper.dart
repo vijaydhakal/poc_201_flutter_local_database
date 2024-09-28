@@ -5,7 +5,7 @@ class PageWrapper extends StatefulWidget {
   final Widget body;
   final bool? hasScaffold;
   const PageWrapper(
-      {this.showAppbar = true, required this.body, this.hasScaffold = true});
+      {super.key, this.showAppbar = true, required this.body, this.hasScaffold = true});
   @override
   _PageWrapperState createState() => _PageWrapperState();
 }

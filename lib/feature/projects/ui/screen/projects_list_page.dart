@@ -20,6 +20,6 @@ class _ProjectsListPageState extends State<ProjectsListPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ProjectsListWidget();
+    return const ProjectsListWidget();
   }
 }

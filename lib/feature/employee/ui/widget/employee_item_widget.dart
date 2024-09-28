@@ -16,10 +16,10 @@ class EmployeeItemWidget extends StatefulWidget {
 class _EmployeeItemWidgetState extends State<EmployeeItemWidget> {
   @override
   Widget build(BuildContext context) {
-    final _theme = Theme.of(context);
+    final theme = Theme.of(context);
     return Slidable(
       endActionPane: ActionPane(
-        motion: ScrollMotion(),
+        motion: const ScrollMotion(),
         extentRatio: 0.25,
         children: [
           SlidableAction(
@@ -28,7 +28,7 @@ class _EmployeeItemWidgetState extends State<EmployeeItemWidget> {
             onPressed: (value) {
               widget.onDelete!();
             },
-            backgroundColor: Color(0xFFFE4A49),
+            backgroundColor: const Color(0xFFFE4A49),
             foregroundColor: Colors.white,
             icon: Icons.delete,
             label: 'Delete',
@@ -39,7 +39,7 @@ class _EmployeeItemWidgetState extends State<EmployeeItemWidget> {
             onPressed: (value) {
               widget.onEdit!();
             },
-            backgroundColor: Color.fromARGB(255, 0, 94, 9),
+            backgroundColor: const Color.fromARGB(255, 0, 94, 9),
             foregroundColor: Colors.white,
             icon: Icons.edit,
 
@@ -48,13 +48,13 @@ class _EmployeeItemWidgetState extends State<EmployeeItemWidget> {
         ],
       ),
       child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Row(
           children: [
             Expanded(
               child: Text(
-                '${widget.item.name}',
-                style: _theme.textTheme.titleMedium!.copyWith(
+                widget.item.name,
+                style: theme.textTheme.titleMedium!.copyWith(
                   fontWeight: FontWeight.w500,
                   fontSize: 20.0,
                 ),
@@ -62,8 +62,8 @@ class _EmployeeItemWidgetState extends State<EmployeeItemWidget> {
             ),
             Expanded(
               child: Text(
-                '${widget.item.salary}',
-                style: _theme.textTheme.titleMedium!.copyWith(
+                widget.item.salary,
+                style: theme.textTheme.titleMedium!.copyWith(
                   fontWeight: FontWeight.w500,
                   fontSize: 20.0,
                 ),
@@ -71,8 +71,8 @@ class _EmployeeItemWidgetState extends State<EmployeeItemWidget> {
             ),
             Expanded(
               child: Text(
-                '${widget.item.salary}',
-                style: _theme.textTheme.titleMedium!.copyWith(
+                widget.item.salary,
+                style: theme.textTheme.titleMedium!.copyWith(
                   fontWeight: FontWeight.w500,
                   fontSize: 20.0,
                 ),

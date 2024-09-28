@@ -20,59 +20,60 @@ static _initializeSharedPreference() async {
     return await SharedPreferences.getInstance();
   }
   static Future<String> getPreferences(String key) async {
-    final _instance = await SharedPreferences.getInstance();
-    return _instance.getString(key) ?? "";
+    final instance = await SharedPreferences.getInstance();
+    return instance.getString(key) ?? "";
   }
 
   static Future setRestApiData(String key, String data) async {
-    final _instance = await SharedPreferences.getInstance();
-    await _instance.setString(key, data);
+    final instance = await SharedPreferences.getInstance();
+    await instance.setString(key, data);
   }
 
   static Future<String?> getRestApiData(String key) async {
-    final _instance = await SharedPreferences.getInstance();
-    var data = _instance.getString(key);
+    final instance = await SharedPreferences.getInstance();
+    var data = instance.getString(key);
 
     if (data != null) {
       return data;
-    } else
+    } else {
       return "";
+    }
   }
 
   static Future<Null> setPreferences(String key, String value) async {
-    final _instance = await SharedPreferences.getInstance();
-    _instance.setString(key, value);
+    final instance = await SharedPreferences.getInstance();
+    instance.setString(key, value);
   }
 
   static Future<bool> getBoolPreferencesWithFallback(
       String key, bool fallback) async {
-    final _instance = await SharedPreferences.getInstance();
-    return _instance.getBool(key) ?? fallback;
+    final instance = await SharedPreferences.getInstance();
+    return instance.getBool(key) ?? fallback;
   }
 
   static Future<bool> getBoolPreferences(String key) async {
-    final _instance = await SharedPreferences.getInstance();
-    return _instance.getBool(key) ?? false;
+    final instance = await SharedPreferences.getInstance();
+    return instance.getBool(key) ?? false;
   }
 
   static Future<Null> setBoolPreferences(String key, bool value) async {
-    final _instance = await SharedPreferences.getInstance();
-    _instance.setBool(key, value);
+    final instance = await SharedPreferences.getInstance();
+    instance.setBool(key, value);
   }
 
   static Future<int> getIntPreferences(String key) async {
-    final _instance = await SharedPreferences.getInstance();
-    return _instance.getInt(key) ?? 0;
+    final instance = await SharedPreferences.getInstance();
+    return instance.getInt(key) ?? 0;
   }
 
   static Future<Null> setIntPreferences(String key, int value) async {
-    final _instance = await SharedPreferences.getInstance();
-    _instance.setInt(key, value);
+    final instance = await SharedPreferences.getInstance();
+    instance.setInt(key, value);
   }
 
   static Future<Null> clearAllPreferences() async {
-    final _instance = await SharedPreferences.getInstance();
-    _instance.clear();
+    final instance = await SharedPreferences.getInstance();
+    instance.clear();
   }
 
   static Future setFirstTimeAppOpen(bool status) async {

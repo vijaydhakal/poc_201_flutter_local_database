@@ -20,7 +20,7 @@ class EmployeeCubit extends Cubit<DataState> {
     }
 
     if (res.status == Status.Success && res.data!.isEmpty) {
-      emit(StateDataFetchSuccess(data: []));
+      emit(const StateDataFetchSuccess(data: []));
     }
   }
 }

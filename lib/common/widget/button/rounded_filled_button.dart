@@ -13,8 +13,8 @@ class RoundedFilledButton extends StatelessWidget {
   final Widget? child;
   final double? horizontalPadding;
 
-  RoundedFilledButton(
-      {required this.title,
+  const RoundedFilledButton(
+      {super.key, required this.title,
       required this.onPressed,
       this.backgroundColor,
       this.borderColor,
@@ -27,8 +27,8 @@ class RoundedFilledButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _theme = Theme.of(context);
-    final _textTheme = _theme.textTheme;
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
 
     return Material(
       type: MaterialType.transparency,
@@ -45,7 +45,7 @@ class RoundedFilledButton extends StatelessWidget {
               horizontal: horizontalPadding ?? 20),
           alignment: Alignment.center,
           decoration: BoxDecoration(
-              color: backgroundColor ?? _theme.primaryColor,
+              color: backgroundColor ?? theme.primaryColor,
               borderRadius: BorderRadius.circular(50),
               border: Border.all(
                 color: borderColor ?? Colors.transparent,
@@ -54,7 +54,7 @@ class RoundedFilledButton extends StatelessWidget {
               Text(
                 title,
                 textScaler: TextScaler.linear(SizeUtils.textScaleFactor),
-                style: _textTheme.labelLarge!.copyWith(
+                style: textTheme.labelLarge!.copyWith(
                   color: textColor ?? Colors.white,
                   fontSize: fontSize ?? 14,
                   fontWeight: FontWeight.w700,

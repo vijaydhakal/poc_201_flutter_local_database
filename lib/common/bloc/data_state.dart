@@ -1,3 +1,5 @@
+// ignore_for_file: overridden_fields
+
 import 'package:equatable/equatable.dart';
 
 class DataState extends Equatable {
@@ -22,12 +24,15 @@ class StateError extends DataState {
 }
 
 class StateNoData extends DataState {
+  @override
   final dynamic data;
   const StateNoData({this.data});
+  @override
   List<Object?> get props => [data];
 }
 
 class StateDataFetchSuccess extends DataState {
+  @override
   final List data;
   const StateDataFetchSuccess({required this.data}) : super(data: data);
   @override
@@ -35,7 +40,9 @@ class StateDataFetchSuccess extends DataState {
 }
 
 class StateDataFetchSuccessMap extends DataState {
+  @override
   final List data;
+  @override
   final String filterId;
   const StateDataFetchSuccessMap({required this.data, required this.filterId})
       : super(data: data, filterId: filterId);
@@ -44,6 +51,7 @@ class StateDataFetchSuccessMap extends DataState {
 }
 
 class StateRefreshingData extends DataState {
+  @override
   final List data;
   const StateRefreshingData({required this.data});
   @override
@@ -51,6 +59,7 @@ class StateRefreshingData extends DataState {
 }
 
 class StateLoadingMoreData extends DataState {
+  @override
   final List data;
   const StateLoadingMoreData({required this.data}) : super(data: data);
   @override
@@ -58,6 +67,7 @@ class StateLoadingMoreData extends DataState {
 }
 
 class StatePaginationNoMoreData extends DataState {
+  @override
   final List data;
   const StatePaginationNoMoreData({required this.data}) : super(data: data);
   @override
@@ -65,7 +75,9 @@ class StatePaginationNoMoreData extends DataState {
 }
 
 class StateLoadingMoreDataMap extends DataState {
+  @override
   final List data;
+  @override
   final String filterId;
   const StateLoadingMoreDataMap({required this.data, required this.filterId})
       : super(data: data, filterId: filterId);

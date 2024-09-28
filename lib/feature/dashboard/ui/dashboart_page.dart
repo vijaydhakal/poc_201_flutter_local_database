@@ -29,7 +29,7 @@ class _DashboardPageState extends State<DashboardPage> {
             RoundedFilledButton(
                 textColor: Colors.white,
                 onPressed: () {
-                  NavigationService.push(EmployeeListPage());
+                  NavigationService.push(const EmployeeListPage());
                 },
                 verticalPadding: 20,
                 title: "Employee",
@@ -39,7 +39,7 @@ class _DashboardPageState extends State<DashboardPage> {
             RoundedFilledButton(
                 textColor: Colors.white,
                 onPressed: () {
-                  NavigationService.push(ProjectsListPage());
+                  NavigationService.push(const ProjectsListPage());
                 },
                 verticalPadding: 20,
                 title: "Projects",
@@ -49,7 +49,7 @@ class _DashboardPageState extends State<DashboardPage> {
             RoundedFilledButton(
                 textColor: Colors.white,
                 onPressed: () {
-                  NavigationService.push(DepartmentListPage());
+                  NavigationService.push(const DepartmentListPage());
                 },
                 verticalPadding: 20,
                 title: "Departments",

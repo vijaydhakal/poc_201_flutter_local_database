@@ -20,7 +20,7 @@ class DepartmentCubit extends Cubit<DataState> {
     }
 
     if (res.status == Status.Success && res.data!.isEmpty) {
-      emit(StateNoData());
+      emit(const StateNoData());
     }
   }
 }

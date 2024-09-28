@@ -11,7 +11,7 @@ class DepartmentRepository {
 
   List<Department> department = [];
 
-  void setData(List<Department> _department) => department = _department;
+  void setData(List<Department> department) => department = department;
 
 
   List<Department> get getAllData => department;
@@ -20,11 +20,11 @@ class DepartmentRepository {
     try {
       final res = await databaseHelper.getAllDepartments();
 
-      final _data = await res
-          .map((doc) => Department.fromMap(doc as Map<String, dynamic>))
+      final data = res
+          .map((doc) => Department.fromMap(doc))
           .toList();
-      setData(_data);
-      return DataResponse.success(_data);
+      setData(data);
+      return DataResponse.success(data);
     } catch (e, s) {
       Log.e(e);
       Log.d(s);

@@ -11,7 +11,7 @@ class ProjectsRepository {
 
   List<Project> allData = [];
 
-  void setData(List<Project> _allData) => allData = _allData;
+  void setData(List<Project> allData) => allData = allData;
 
 
   List<Project> get getAllData => allData;
@@ -20,11 +20,11 @@ class ProjectsRepository {
     try {
       final res = await databaseHelper.getAllProjects();
 
-      final _data = await res
-          .map((doc) => Project.fromMap(doc as Map<String, dynamic>))
+      final data = res
+          .map((doc) => Project.fromMap(doc))
           .toList();
-      setData(_data);
-      return DataResponse.success(_data);
+      setData(data);
+      return DataResponse.success(data);
     } catch (e, s) {
       Log.e(e);
       Log.d(s);

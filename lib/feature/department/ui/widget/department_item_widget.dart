@@ -14,7 +14,7 @@ class DepartmentItemWidget extends StatefulWidget {
 class _DepartmentItemWidgetState extends State<DepartmentItemWidget> {
   @override
   Widget build(BuildContext context) {
-    final _theme = Theme.of(context);
+    final theme = Theme.of(context);
     return Slidable(
       endActionPane: ActionPane(
         motion: const ScrollMotion(),
@@ -54,8 +54,8 @@ class _DepartmentItemWidgetState extends State<DepartmentItemWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '${widget.item.departmentName}',
-                    style: _theme.textTheme.titleMedium!.copyWith(
+                    widget.item.departmentName,
+                    style: theme.textTheme.titleMedium!.copyWith(
                       fontWeight: FontWeight.w500,
                       fontSize: 20.0,
                     ),

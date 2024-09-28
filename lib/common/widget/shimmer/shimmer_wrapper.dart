@@ -8,11 +8,11 @@ class ShimmerWrapper extends StatelessWidget {
   final EdgeInsets? padding;
   final double bottomMargin;
   const ShimmerWrapper({
-    Key? key,
+    super.key,
     required this.child,
     this.padding,
     this.bottomMargin = 8,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,9 +22,9 @@ class ShimmerWrapper extends StatelessWidget {
       color: Colors.transparent,
       child: Shimmer.fromColors(
         direction: ShimmerDirection.ltr,
-        child: child,
         baseColor: CustomTheme.lightGray.withOpacity(0.5),
         highlightColor: Colors.white,
+        child: child,
       ),
     );
   }

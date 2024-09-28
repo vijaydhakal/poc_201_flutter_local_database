@@ -2,31 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:poc_flutter/common/constant/constant_assets.dart';
 
 class NoDataWidget extends StatelessWidget {
-  const NoDataWidget({Key? key, this.message}) : super(key: key);
+  const NoDataWidget({super.key, this.message});
   final String? message;
 
   @override
   Widget build(BuildContext context) {
-    final _theme = Theme.of(context);
+    final theme = Theme.of(context);
     return Center(
-      child: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              Assets.logo,
-              height: 200,
-              width: 200,
-            ),
-            SizedBox(
-              height: 16,
-            ),
-            Text(
-              message ?? "No data found",
-              style: _theme.textTheme.titleLarge,
-            )
-          ],
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            Assets.logo,
+            height: 200,
+            width: 200,
+          ),
+          const SizedBox(
+            height: 16,
+          ),
+          Text(
+            message ?? "No data found",
+            style: theme.textTheme.titleLarge,
+          )
+        ],
       ),
     );
   }

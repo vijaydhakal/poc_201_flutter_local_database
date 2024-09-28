@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class ButtonWithLeadingIcon extends StatelessWidget {
   const ButtonWithLeadingIcon(
-      {@required this.name,
+      {super.key, @required this.name,
       this.function,
       this.backgroundColor,
       required this.icon,
@@ -24,23 +24,29 @@ class ButtonWithLeadingIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double _width = MediaQuery.of(context).size.width;
+    double width = MediaQuery.of(context).size.width;
 
     return Container(
-      margin: EdgeInsets.only(bottom: 16),
+      margin: const EdgeInsets.only(bottom: 16),
       child: Material(
         type: MaterialType.transparency,
         child: InkWell(
           borderRadius: BorderRadius.circular(50),
           onTap: function == null ? null : () => function!(),
           child: Container(
-            padding: EdgeInsets.symmetric(vertical: 12),
-            width: (width ?? _width) / 1.1,
+            padding: const EdgeInsets.symmetric(vertical: 12),
+            width: (width) / 1.1,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(50),
+              border: Border.all(
+                  color: borderColor ?? const Color(0xFF707070).withOpacity(0.2)),
+              color: backgroundColor,
+            ),
             child: Stack(
               alignment: AlignmentDirectional.center,
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: 4),
+                  padding: const EdgeInsets.symmetric(vertical: 4),
                   child: Text(
                     name!,
                     style: Theme.of(context).textTheme.labelLarge!.copyWith(
@@ -60,12 +66,6 @@ class ButtonWithLeadingIcon extends StatelessWidget {
                       ),
                 )
               ],
-            ),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(50),
-              border: Border.all(
-                  color: borderColor ?? Color(0xFF707070).withOpacity(0.2)),
-              color: backgroundColor,
             ),
           ),
         ),

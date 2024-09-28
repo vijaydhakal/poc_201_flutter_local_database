@@ -60,6 +60,7 @@ dependencies:
 
   sqflite: ^2.3.3+1
 
+  path: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -3,7 +3,7 @@ import 'package:poc_flutter/app/theme.dart';
 
 class CustomDropDown extends StatefulWidget {
   const CustomDropDown({
-    Key? key,
+    super.key,
     required this.items,
     this.selected,
     this.borderRadius = 50,
@@ -16,7 +16,7 @@ class CustomDropDown extends StatefulWidget {
     this.value,
     this.titleFontSize = 20,
     this.titleFontWeight = FontWeight.w700,
-  }) : super(key: key);
+  });
   final List items;
   final String? selected;
   final Function(String?)? onChanged;
@@ -36,8 +36,8 @@ class CustomDropDown extends StatefulWidget {
 class _CustomDropDownState extends State<CustomDropDown> {
   @override
   Widget build(BuildContext context) {
-    final ThemeData _theme = Theme.of(context);
-    final bool _isDarkMode = false;
+    final ThemeData theme = Theme.of(context);
+    const bool isDarkMode = false;
     return Container(
       padding: EdgeInsets.only(bottom: widget.bottomMargin),
       child: Column(
@@ -48,7 +48,7 @@ class _CustomDropDownState extends State<CustomDropDown> {
               padding: const EdgeInsets.only(bottom: 6.0),
               child: Text(
                 widget.title,
-                style: _theme.textTheme.headlineSmall!.copyWith(
+                style: theme.textTheme.headlineSmall!.copyWith(
                   fontWeight: widget.titleFontWeight,
                   fontSize: widget.titleFontSize,
                   letterSpacing: 0.28,
@@ -59,10 +59,10 @@ class _CustomDropDownState extends State<CustomDropDown> {
           DropdownButtonFormField<String>(
             items: widget.items.map<DropdownMenuItem<String>>((dynamic item) {
               return DropdownMenuItem<String>(
+                value: item,
                 child: Text(
                   item,
                 ),
-                value: item,
               );
             }).toList(),
             onTap: () {
@@ -72,30 +72,30 @@ class _CustomDropDownState extends State<CustomDropDown> {
             isExpanded: true,
             value: widget.selected,
             validator: widget.validator,
-            dropdownColor: _theme.scaffoldBackgroundColor,
-            style: _theme.textTheme.headlineSmall!.copyWith(
+            dropdownColor: theme.scaffoldBackgroundColor,
+            style: theme.textTheme.headlineSmall!.copyWith(
               // color: CustomTheme.primaryColor,
               letterSpacing: 0.2,
             ),
             decoration: InputDecoration(
               errorText: widget.errorText,
               counterText: '',
-              errorStyle: _theme.textTheme.bodyLarge!.copyWith(
+              errorStyle: theme.textTheme.bodyLarge!.copyWith(
                 color: CustomTheme.errorColor,
                 letterSpacing: 0.2,
                 fontSize: 10,
                 fontWeight: FontWeight.w400,
               ),
               hintText: widget.hintText,
-              hintStyle: _theme.textTheme.headlineSmall!.copyWith(
+              hintStyle: theme.textTheme.headlineSmall!.copyWith(
                 letterSpacing: 0.2,
                 // color: CustomTheme.lightTextColor,
               ),
-              fillColor: _theme.scaffoldBackgroundColor,
-              border: _border(_isDarkMode),
-              focusedBorder: _border(_isDarkMode),
-              enabledBorder: _border(_isDarkMode),
-              errorBorder: _border(_isDarkMode, isErrorBorder: true),
+              fillColor: theme.scaffoldBackgroundColor,
+              border: _border(isDarkMode),
+              focusedBorder: _border(isDarkMode),
+              enabledBorder: _border(isDarkMode),
+              errorBorder: _border(isDarkMode, isErrorBorder: true),
               contentPadding: const EdgeInsets.only(
                   left: 16, bottom: 8, top: 16, right: 16),
             ),

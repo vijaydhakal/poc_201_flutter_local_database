@@ -17,16 +17,16 @@ class CustomTheme {
 
   static ThemeData lightTheme = ThemeData(
     primarySwatch: Colors.blue,
-    primaryColor: Color(0xffE5E5E5),
-    primaryColorDark: Color(0xffE5E5E5),
+    primaryColor: const Color(0xffE5E5E5),
+    primaryColorDark: const Color(0xffE5E5E5),
     shadowColor: Colors.black,
-    appBarTheme: AppBarTheme(
+    appBarTheme: const AppBarTheme(
         iconTheme: IconThemeData(
       color: Color(0xffE5E5E5),
     )),
     scaffoldBackgroundColor: Colors.white,
-    iconTheme: IconThemeData(color: Color(0xff707070)),
-    textTheme: TextTheme(
+    iconTheme: const IconThemeData(color: Color(0xff707070)),
+    textTheme: const TextTheme(
       displayLarge: TextStyle(
         color: textColor,
         fontWeight: FontWeight.bold,
@@ -50,6 +50,6 @@ class CustomTheme {
         color: textColor,
       ),
     ),
-    bottomAppBarTheme: BottomAppBarTheme(color: Colors.white),
+    bottomAppBarTheme: const BottomAppBarTheme(color: Colors.white),
   );
 }

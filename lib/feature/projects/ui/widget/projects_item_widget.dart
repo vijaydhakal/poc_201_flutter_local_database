@@ -14,7 +14,7 @@ class ProjectsItemWidget extends StatefulWidget {
 class _ProjectsItemWidgetState extends State<ProjectsItemWidget> {
   @override
   Widget build(BuildContext context) {
-    final _theme = Theme.of(context);
+    final theme = Theme.of(context);
     return Slidable(
       endActionPane: ActionPane(
         motion: const ScrollMotion(),
@@ -54,8 +54,8 @@ class _ProjectsItemWidgetState extends State<ProjectsItemWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    '${widget.item.projectName}',
-                    style: _theme.textTheme.titleMedium!.copyWith(
+                    widget.item.projectName,
+                    style: theme.textTheme.titleMedium!.copyWith(
                       fontWeight: FontWeight.w500,
                       fontSize: 20.0,
                     ),

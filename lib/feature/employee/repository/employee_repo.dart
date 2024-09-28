@@ -11,7 +11,7 @@ class EmployeeRepository {
 
   List<Employee> employees = [];
   //set categories
-  void setEmployee(List<Employee> _employees) => employees = _employees;
+  void setEmployee(List<Employee> employees) => employees = employees;
 
   //get categories
   List<Employee> get getEmployees => employees;
@@ -20,11 +20,11 @@ class EmployeeRepository {
     try {
       final res = await databaseHelper.getAllEmployees();
 
-      final _data = await res
-          .map((doc) => Employee.fromMap(doc as Map<String, dynamic>))
+      final data = res
+          .map((doc) => Employee.fromMap(doc))
           .toList();
-      setEmployee(_data);
-      return DataResponse.success(_data);
+      setEmployee(data);
+      return DataResponse.success(data);
     } catch (e, s) {
       Log.e(e);
       Log.d(s);

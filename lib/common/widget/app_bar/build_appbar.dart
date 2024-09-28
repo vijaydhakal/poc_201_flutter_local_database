@@ -8,8 +8,8 @@ AppBar buildAppBar(String title,
     List<Widget> actions = const [],
     Color? backIconColor,
     Color? titleColor}) {
-  BuildContext _ctx = NavigationService.navKey.currentContext;
-  final _txt = Theme.of(_ctx).textTheme;
+  BuildContext ctx = NavigationService.navKey.currentContext;
+  final txt = Theme.of(ctx).textTheme;
   return AppBar(
     backgroundColor: bgColor ?? Colors.white,
     elevation: 0,
@@ -18,7 +18,7 @@ AppBar buildAppBar(String title,
         ? Container()
         : InkWell(
             onTap: () {
-              Navigator.pop(_ctx);
+              Navigator.pop(ctx);
             },
             child: Icon(
               Icons.arrow_back,
@@ -27,7 +27,7 @@ AppBar buildAppBar(String title,
           ),
     title: Text(
       title,
-      style: _txt.headlineMedium!.copyWith(color: titleColor),
+      style: txt.headlineMedium!.copyWith(color: titleColor),
       textScaler: TextScaler.linear(SizeUtils.textScaleFactor),
     ),
     actions: actions,

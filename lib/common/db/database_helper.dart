@@ -40,7 +40,7 @@ class DatabaseHelper {
 
   // Create tables
   Future<void> _onCreate(Database db, int version) async {
-    await db
+    db
       ..execute(employeeTable.createTableQuery)
       ..execute(departmentTable.createTableQuery)
       ..execute(projectTable.createTableQuery)

@@ -10,7 +10,7 @@ typedef ListItemCallback<T> = Widget Function(BuildContext context, int index);
 
 class CommonListview extends StatelessWidget {
   const CommonListview({
-    Key? key,
+    super.key,
     required this.refreshController,
     this.noDataWidget,
     required this.items,
@@ -20,7 +20,7 @@ class CommonListview extends StatelessWidget {
     this.isLoadMoreActive = false,
     required this.itemBuilder,
     this.hasSmartRefresh = true,
-  }) : super(key: key);
+  });
   final RefreshController refreshController;
   final Widget? noDataWidget;
   final List items;
@@ -32,10 +32,10 @@ class CommonListview extends StatelessWidget {
   final bool hasSmartRefresh;
 
   Widget _buildBody() {
-    if (items.length == 0) {
+    if (items.isEmpty) {
       return SingleChildScrollView(
           child: Center(
-        child: noDataWidget ?? NoDataWidget(),
+        child: noDataWidget ?? const NoDataWidget(),
       ));
     } else {
       return NotificationListener<ScrollNotification>(
@@ -62,8 +62,9 @@ class CommonListview extends StatelessWidget {
                 return Center(
                   child: BounceLoader(size: 25.wp, color: CustomTheme.blue),
                 );
-              } else
+              } else {
                 return itemBuilder(context, index);
+              }
             }),
       );
     }
@@ -76,10 +77,7 @@ class CommonListview extends StatelessWidget {
             controller: refreshController,
 
             enablePullDown: true,
-            // onRefresh: () => onRefresh(),
-            onRefresh: () {
-              print("called on refresh");
-            },
+            onRefresh: () => onRefresh(),
             child: _buildBody(),
           )
         : _buildBody();

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
 import 'package:poc_flutter/common/bloc/data_state.dart';
-import 'package:poc_flutter/common/form_validators.dart';
+import 'package:poc_flutter/common/widget/form_validators.dart';
 import 'package:poc_flutter/common/util/check_empty_utils.dart';
 import 'package:poc_flutter/common/util/size_utils.dart';
 import 'package:poc_flutter/common/widget/app_bar/build_appbar.dart';

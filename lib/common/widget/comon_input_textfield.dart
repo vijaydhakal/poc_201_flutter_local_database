@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:poc_flutter/app/theme.dart';
 import 'package:poc_flutter/common/util/size_utils.dart';
 
@@ -98,7 +99,7 @@ class _InputFormTextfieldState extends State<InputFormTextfieldWithLabel> {
                 suffixIcon: widget.suffixIcon ?? Container(width: 1)),
           ),
         ),
-        SizedBox(height: 24.wp)
+        Gap(24.hp)
       ],
     );
   }

@@ -75,7 +75,6 @@ class CommonListview extends StatelessWidget {
     return hasSmartRefresh
         ? SmartRefresher(
             controller: refreshController,
-
             enablePullDown: true,
             onRefresh: () => onRefresh(),
             child: _buildBody(),

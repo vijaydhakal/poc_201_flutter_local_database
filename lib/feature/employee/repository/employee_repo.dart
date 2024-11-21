@@ -20,9 +20,7 @@ class EmployeeRepository {
     try {
       final res = await databaseHelper.getAllEmployees();
 
-      final data = res
-          .map((doc) => Employee.fromMap(doc))
-          .toList();
+      final data = res.map((doc) => Employee.fromMap(doc)).toList();
       setEmployee(data);
       return DataResponse.success(data);
     } catch (e, s) {
@@ -45,9 +43,11 @@ class EmployeeRepository {
       return DataResponse.error(e.toString());
     }
   }
-  Future<DataResponse<int>> updateEmployee(int id,Map<String, dynamic> item) async {
+
+  Future<DataResponse<int>> updateEmployee(
+      int id, Map<String, dynamic> item) async {
     try {
-      final res = await databaseHelper.updateEmployee(id,item);
+      final res = await databaseHelper.updateEmployee(id, item);
       if (res != 0) {
         return DataResponse.success(res);
       }
@@ -59,7 +59,7 @@ class EmployeeRepository {
     }
   }
 
-   Future<DataResponse<int>> deleteEmployee(int id) async {
+  Future<DataResponse<int>> deleteEmployee(int id) async {
     try {
       final res = await databaseHelper.deleteEmployee(id);
       if (res != 0) {

@@ -7,7 +7,8 @@ class LoadingOverlay extends StatefulWidget {
   final Widget progressIndicator;
   final Widget child;
 
-  const LoadingOverlay({super.key, 
+  const LoadingOverlay({
+    super.key,
     required this.isLoading,
     required this.child,
     this.opacity = 0.5,
@@ -31,15 +32,19 @@ class _LoadingOverlayState extends State<LoadingOverlay>
   void initState() {
     super.initState();
     _overlayVisible = false;
-    _controller =
-        AnimationController(vsync: this, duration: const Duration(milliseconds: 300));
+    _controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 300));
     _animation = Tween(begin: 0.0, end: 1.0).animate(_controller);
     _animation.addStatusListener((status) {
       status == AnimationStatus.forward
-          ? setState(() {_overlayVisible = true;})
+          ? setState(() {
+              _overlayVisible = true;
+            })
           : null;
       status == AnimationStatus.dismissed
-          ? setState(() {_overlayVisible = false;})
+          ? setState(() {
+              _overlayVisible = false;
+            })
           : null;
     });
     if (widget.isLoading) {

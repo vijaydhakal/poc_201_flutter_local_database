@@ -19,7 +19,8 @@ class EmployeeAddCubit extends Cubit<DataState> {
     }
   }
 
-  updateEmployee({required int id,required Map<String, dynamic> employee}) async {
+  updateEmployee(
+      {required int id, required Map<String, dynamic> employee}) async {
     emit(StateLoading());
     final res = await employeeRepository.updateEmployee(id, employee);
     if (res.status == Status.Success) {

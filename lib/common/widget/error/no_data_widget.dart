@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:poc_flutter/common/constant/constant_assets.dart';
 
 class NoDataWidget extends StatelessWidget {
@@ -17,9 +18,7 @@ class NoDataWidget extends StatelessWidget {
             height: 200,
             width: 200,
           ),
-          const SizedBox(
-            height: 16,
-          ),
+          const Gap(16),
           Text(
             message ?? "No data found",
             style: theme.textTheme.titleLarge,

@@ -10,7 +10,7 @@ class ItemDeleteDialog extends StatelessWidget {
     return StatefulBuilder(
       builder: (context, setState) {
         return AlertDialog(
-          title: const Text("Are you sure?"),
+          title: const Text("Are you sure ?"),
           actions: <Widget>[
             TextButton(
               onPressed: () => Navigator.pop(context),

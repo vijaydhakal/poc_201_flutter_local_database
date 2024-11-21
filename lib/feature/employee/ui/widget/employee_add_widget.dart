@@ -20,7 +20,7 @@ import 'package:poc_flutter/feature/projects/cubit/projects_cubit.dart';
 import 'package:poc_flutter/feature/projects/model/project.dart';
 
 class AddEmployeeWidget extends StatefulWidget {
- final Employee? item;
+  final Employee? item;
 
   const AddEmployeeWidget({super.key, this.item});
 

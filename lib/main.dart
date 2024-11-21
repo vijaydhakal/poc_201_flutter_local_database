@@ -7,7 +7,6 @@ import 'package:poc_flutter/common/util/log.dart';
 void main() async {
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
-
     runApp(
       App(env: EnvValue.development),
     );
